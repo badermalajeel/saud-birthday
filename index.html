@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saud's Birthday · Gift list</title>
+<meta name="description" content="Saud turns 6 on Saturday 28 November. Pick a gift and reserve it.">
+<meta property="og:title" content="Saud's Birthday · Gift list">
+<meta property="og:description" content="Saud turns 6 on Saturday 28 November. Pick a gift and reserve it so no one buys the same thing.">
+<meta property="og:image" content="img/tripleloop.jpg">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1B3F;--orange:#C2410C;--hot:#FF5A1F;--yellow:#FFC72C;--bg:#F4F5F8;--line:#E4E8F1;--muted:#4B5675;--border:#C9D1E3}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--navy);font-family:Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--orange)}
+button{font-family:inherit}
+.wrap{max-width:560px;margin:0 auto;background:var(--bg);min-height:100vh;position:relative}
+.chk{height:14px;background:repeating-conic-gradient(var(--navy) 0 25%,#fff 0 50%) 0 0/14px 14px}
+.disp{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;margin:0}
+.hero{background:var(--navy);color:#fff;padding:28px 20px 24px;display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--yellow)}
+.stripe{height:10px;background:linear-gradient(90deg,var(--yellow) 0 30%,var(--hot) 30% 100%);transform:skewX(-20deg);margin:6px -10px 0}
+.lede{margin:8px 0 0;font-size:15px;line-height:1.5;color:#DCE3F2}
+.pad{padding:16px}
+.card{background:#fff;border-radius:14px;box-shadow:0 1px 2px rgba(11,27,63,.08)}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.bar>div{height:100%;background:var(--hot);transition:width .3s}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:0;cursor:pointer;font:600 14px Inter,sans-serif;padding:10px 16px;min-height:44px;border-radius:22px;background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1px var(--border)}
+.chip[aria-pressed=true]{background:var(--navy);color:#fff;box-shadow:none}
+.grp{padding:22px 16px 0;display:flex;flex-direction:column;gap:12px}
+.grp h2{font-size:26px;display:flex;align-items:baseline;gap:8px}
+.grp h2 span{font-family:Inter,sans-serif;font-style:normal;font-size:13px;font-weight:500;color:var(--muted);text-transform:none}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:520px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.gift{background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(11,27,63,.08)}
+.gift.sel{box-shadow:0 0 0 3px var(--navy)}
+.ph{position:relative;height:150px;background:var(--line);display:block}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.gift.taken .ph img{opacity:.4;filter:grayscale(1)}
+.tag{position:absolute;top:8px;left:8px;background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 8px;border-radius:6px}
+.gb{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex-grow:1}
+.gname{font-size:14px;font-weight:600;line-height:1.3;min-height:36px;color:var(--navy);text-decoration:none}
+.price{font-size:14px;font-weight:700}
+.store{font-size:12px;color:var(--muted)}
+.grow{flex-grow:1}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;min-height:44px;border:0;border-radius:10px;cursor:pointer;font:700 14px Inter,sans-serif;text-decoration:none;background:var(--orange);color:#fff}
+.btn.navy{background:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
+.btn.grey{background:var(--line);color:var(--muted);cursor:default}
+.btn.big{font-size:17px;min-height:54px;border-radius:12px}
+.btn[disabled]{opacity:.6;cursor:default}
+.mt8{margin-top:8px}
+.selbar{position:sticky;bottom:0;background:var(--navy);color:#fff;padding:14px 16px calc(16px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;box-shadow:0 -4px 16px rgba(11,27,63,.25);z-index:5}
+.selbar .go{background:var(--hot);color:var(--navy);text-decoration:none;font-size:16px;font-weight:800;padding:13px 22px;border-radius:12px;border:0;cursor:pointer}
+.foot{padding:28px 20px 40px;font-size:13px;line-height:1.5;color:var(--muted);text-align:center}
+.back{position:absolute;top:16px;left:16px;width:44px;height:44px;border-radius:22px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(11,27,63,.2);z-index:2}
+.row{display:flex;gap:12px;align-items:center}
+.thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;flex-shrink:0;background:var(--line)}
+.lbl{font-size:14px;font-weight:600}
+.inp{font:16px Inter,sans-serif;padding:13px 14px;border-radius:10px;border:1.5px solid var(--border);color:var(--navy);width:100%}
+.inp:focus{outline:none;border-color:var(--navy)}
+.hint{font-size:13px;color:var(--muted);line-height:1.5}
+.note{background:var(--bg);border-radius:12px;padding:14px;font-size:14px;line-height:1.5;color:#2C3754}
+.err{background:#FDECEA;color:#9B1C1C;border-radius:10px;padding:12px;font-size:14px;line-height:1.5}
+.storelink{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;min-height:44px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--border);color:var(--navy);text-decoration:none;font-size:15px;font-weight:600}
+.storelink span:last-child{color:var(--orange);font-size:14px;display:flex;align-items:center;gap:6px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{background:#fff;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px}.stat b{font-size:24px}.stat span{font-size:12px;color:var(--muted)}
+.list{background:#fff;border-radius:14px;overflow:hidden}
+.li{display:flex;gap:12px;align-items:center;padding:12px;border-bottom:1px solid var(--line)}
+.li:last-child{border-bottom:0}
+.h3{margin:8px 0 0;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.small{font-size:13px;color:var(--muted)}
+.minibtn{border:1.5px solid var(--border);background:#fff;color:var(--navy);border-radius:8px;min-height:36px;padding:0 10px;font:600 13px Inter,sans-serif;cursor:pointer;white-space:nowrap}
+.loading{padding:60px 20px;text-align:center;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="loading">Loading…</div></div>
+<script>
+const SB_URL = 'https://yktuktdnkdygkuzgzxyk.supabase.co';
+const SB_KEY = 'sb_publishable__6nEHD76eLZ0_vi8wetpcQ_8G-1awvW';
+const PARTY = { title: "Saud's Birthday", age: 6, dateLabel: 'Saturday 28 November', ics: '20261128' };
+
+const app = document.getElementById('app');
+const S = { gifts: [], filter: 'all', sel: new Set(JSON.parse(sessionStorage.getItem('sel') || '[]')), loaded: false };
+const tokenKey = 'saud_bday_token';
+const lsGet = k => { try { return localStorage.getItem(k) } catch (e) { return null } };
+const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v) } catch (e) {} };
+const saveSel = () => sessionStorage.setItem('sel', JSON.stringify([...S.sel]));
+
+async function rpc(fn, args) {
+  const r = await fetch(SB_URL + '/rest/v1/rpc/' + fn, {
+    method: 'POST', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify(args || {})
+  });
+  const data = await r.json().catch(() => null);
+  if (!r.ok) throw new Error((data && data.message) || 'Request failed');
+  return data;
+}
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const kwd = p => p == null ? 'Price in store' : 'KWD ' + Number(p).toFixed(3);
+const ICON = {
+  back: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1B3F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>',
+  check: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  out: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>',
+  lock: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1B3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>',
+  cal: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  share: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>'
+};
+const myLink = t => location.origin + location.pathname + '#/mine/' + t;
+
+async function loadGifts() {
+  S.gifts = await rpc('list_gifts');
+  S.loaded = true;
+  for (const id of [...S.sel]) { const g = S.gifts.find(x => x.id === id); if (!g || g.reserved) S.sel.delete(id); }
+  saveSel();
+}
+
+function header(small) {
+  return `<div class="chk"></div><header class="hero">
+    <div class="eyebrow">GIFT LIST</div>
+    <h1 class="disp" style="font-size:${small ? 40 : 54}px;line-height:.95">Saud turns 6</h1>
+    <div style="font-size:16px;font-weight:600">${PARTY.dateLabel}</div>
+    <div class="stripe"></div>
+    ${small ? '' : `<p class="lede">Select one or more gifts, then tap <b style="color:#fff">Reserve</b>. They are held for you, so no one buys the same thing.</p>`}
+  </header>`;
+}
+
+// ---------- LIST ----------
+function viewList() {
+  const total = S.gifts.length, taken = S.gifts.filter(g => g.reserved).length;
+  const groups = [];
+  for (const g of S.gifts) {
+    if (S.filter === 'open' && g.reserved) continue;
+    if (S.filter === 'taken' && !g.reserved) continue;
+    let grp = groups.find(x => x.t === g.grp); if (!grp) groups.push(grp = { t: g.grp, items: [] });
+    grp.items.push(g);
+  }
+  const selGifts = S.gifts.filter(g => S.sel.has(g.id));
+  const selTotal = selGifts.reduce((a, g) => a + (Number(g.price) || 0), 0);
+  const tok = lsGet(tokenKey);
+  app.innerHTML = header(false) + `
+  <section class="pad" style="display:flex;flex-direction:column;gap:14px;padding-bottom:0">
+    ${tok ? `<a class="btn ghost" href="#/mine/${esc(tok)}">See the gifts you reserved</a>` : ''}
+    <div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span style="font-weight:600">${taken} of ${total} reserved</span><span style="color:var(--muted)">${total - taken} left</span></div>
+      <div class="bar"><div style="width:${total ? Math.round(taken / total * 100) : 0}%"></div></div>
+    </div>
+    <div class="chips" role="group" aria-label="Filter gifts">
+      <button class="chip" data-f="all" aria-pressed="${S.filter === 'all'}">All ${total}</button>
+      <button class="chip" data-f="open" aria-pressed="${S.filter === 'open'}">Available ${total - taken}</button>
+      <button class="chip" data-f="taken" aria-pressed="${S.filter === 'taken'}">Reserved ${taken}</button>
+    </div>
+  </section>
+  ${groups.map(gr => `<section class="grp"><h2 class="disp">${esc(gr.t)} <span>${gr.items.length} ${gr.items.length === 1 ? 'gift' : 'gifts'}</span></h2>
+    <div class="grid">${gr.items.map(card).join('')}</div></section>`).join('')}
+  ${groups.length ? '' : '<p class="foot">Nothing here.</p>'}
+  ${S.sel.size ? `<div class="selbar" style="margin-top:24px">
+      <div style="display:flex;flex-direction:column;gap:2px;flex-grow:1"><span style="font-size:15px;font-weight:700">${S.sel.size} ${S.sel.size === 1 ? 'gift' : 'gifts'} selected</span><span style="font-size:13px;color:#DCE3F2">${selTotal ? 'KWD ' + selTotal.toFixed(3) : ''}</span></div>
+      <a class="go" href="#/reserve">Reserve</a></div>` : ''}
+  <footer class="foot">Prices are from the store and may change.<br>Questions? Message Bader or Anfal.</footer>
+  ${S.sel.size ? '' : '<div class="chk"></div>'}`;
+  app.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { S.filter = b.dataset.f; render(); });
+  app.querySelectorAll('[data-sel]').forEach(b => b.onclick = () => {
+    const id = +b.dataset.sel; S.sel.has(id) ? S.sel.delete(id) : S.sel.add(id); saveSel();
+    const y = scrollY; render(); scrollTo(0, y);
+  });
+}
+function card(g) {
+  const on = S.sel.has(g.id);
+  return `<article class="gift ${g.reserved ? 'taken' : ''} ${on ? 'sel' : ''}">
+    <a class="ph" href="#/gift/${g.id}"><img src="${esc(g.img)}" alt="${esc(g.name)}" loading="lazy">${g.reserved ? '<span class="tag">RESERVED</span>' : ''}</a>
+    <div class="gb"><a class="gname" href="#/gift/${g.id}">${esc(g.name)}</a>
+      <div class="price">${kwd(g.price)}</div><div class="store">${esc(g.store)}</div><div class="grow"></div>
+      ${g.reserved ? '<div class="btn grey mt8">Taken</div>' :
+      `<button class="btn mt8 ${on ? 'navy' : ''}" data-sel="${g.id}" aria-pressed="${on}">${on ? ICON.check + 'Selected' : 'Select'}</button>`}
+    </div></article>`;
+}
+
+// ---------- DETAIL ----------
+function viewGift(id) {
+  const g = S.gifts.find(x => x.id === +id);
+  if (!g) { location.hash = '#/'; return; }
+  const on = S.sel.has(g.id);
+  app.innerHTML = `<div style="position:relative;height:380px;background:var(--line)">
+      <img src="${esc(g.img)}" alt="${esc(g.name)}" style="width:100%;height:100%;object-fit:cover;display:block${g.reserved ? ';opacity:.45;filter:grayscale(1)' : ''}">
+      <a class="back" href="#/" aria-label="Back to gift list">${ICON.back}</a>
+      <span style="position:absolute;bottom:14px;left:16px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:6px;${g.reserved ? 'background:var(--navy);color:#fff">Reserved' : 'background:var(--yellow);color:var(--navy)">Available'}</span>
+    </div>
+    <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:13px;font-weight:600;color:var(--muted)">${esc(g.grp)}</div>
+      <h1 class="disp" style="font-size:32px;line-height:1">${esc(g.name)}</h1>
+      <div style="font-size:22px;font-weight:700">${kwd(g.price)}</div>
+      ${g.note ? `<p style="margin:0;font-size:15px;line-height:1.5;color:#2C3754">${esc(g.note)}</p>` : ''}
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted)">WHERE TO BUY</div>
+        ${storeLinks(g)}
+      </div>
+    </div>
+    <div style="padding:16px 20px 28px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line)">
+      ${g.reserved ? '<div class="btn grey big">Someone is already getting this</div>' :
+      `<button class="btn big ${on ? 'navy' : ''}" id="tg">${on ? ICON.check + 'Selected' : 'Select this gift'}</button>
+       ${S.sel.size ? `<a class="btn ghost big" href="#/reserve">Reserve ${S.sel.size} ${S.sel.size === 1 ? 'gift' : 'gifts'}</a>` : ''}
+       <div class="hint" style="text-align:center">Select as many as you like, then reserve them together.</div>`}
+    </div>`;
+  const t = document.getElementById('tg');
+  if (t) t.onclick = () => { on ? S.sel.delete(g.id) : S.sel.add(g.id); saveSel(); render(); };
+  scrollTo(0, 0);
+}
+function storeLinks(g) {
+  let h = '';
+  if (g.url) h += `<a class="storelink" href="${esc(g.url)}" target="_blank" rel="noopener"><span>Fantasy World</span><span>Open ${ICON.out}</span></a>`;
+  if (g.url2) h += `<a class="storelink" href="${esc(g.url2)}" target="_blank" rel="noopener"><span>${esc(g.url2_label || 'Other store')}</span><span>Open ${ICON.out}</span></a>`;
+  if (!g.url && !g.url2) h += `<div class="storelink" style="color:var(--muted)">Sold in store at Fantasy World</div>`;
+  return h;
+}
+
+// ---------- RESERVE ----------
+function viewReserve(errMsg) {
+  const items = S.gifts.filter(g => S.sel.has(g.id));
+  if (!items.length) { location.hash = '#/'; return; }
+  const n = items.length;
+  const savedName = lsGet('saud_bday_name') || '', savedPhone = lsGet('saud_bday_phone') || '';
+  app.innerHTML = `<div style="position:relative;padding:72px 20px 16px;background:var(--navy)">
+      <a class="back" href="#/" aria-label="Back to gift list">${ICON.back}</a>
+      <h1 class="disp" style="font-size:34px;color:#fff">Reserve ${n} ${n === 1 ? 'gift' : 'gifts'}</h1>
+    </div>
+    <form id="f" style="padding:20px;display:flex;flex-direction:column;gap:16px" novalidate>
+      <div class="card" style="padding:12px;display:flex;flex-direction:column;gap:10px">
+        ${items.map(g => `<div class="row"><img class="thumb" src="${esc(g.img)}" alt=""><div style="flex-grow:1;min-width:0"><div class="lbl">${esc(g.name)}</div><div class="small">${kwd(g.price)}</div></div>
+          <button type="button" class="minibtn" data-rm="${g.id}" aria-label="Remove ${esc(g.name)}">Remove</button></div>`).join('')}
+      </div>
+      ${errMsg ? `<div class="err" role="alert">${errMsg}</div>` : ''}
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label class="lbl" for="nm">Your name</label>
+        <input class="inp" id="nm" name="nm" autocomplete="name" required maxlength="80" value="${esc(savedName)}">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label class="lbl" for="ph">WhatsApp number <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+        <input class="inp" id="ph" name="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+965" maxlength="30" value="${esc(savedPhone)}">
+        <div class="hint">So Bader and Anfal can reach you if needed.</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start" class="note">${ICON.lock}<div class="hint" style="color:#2C3754">Only Saud's parents see your name. Other guests see "Reserved".</div></div>
+      <button class="btn big" type="submit" id="go">Reserve ${n} ${n === 1 ? 'gift' : 'gifts'}</button>
+      <a href="#/" style="text-align:center;font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;padding:6px 0">Back to the list</a>
+    </form>`;
+  app.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { S.sel.delete(+b.dataset.rm); saveSel(); render(); });
+  document.getElementById('f').onsubmit = async e => {
+    e.preventDefault();
+    const name = document.getElementById('nm').value.trim(), phone = document.getElementById('ph').value.trim();
+    if (!name) { document.getElementById('nm').focus(); document.getElementById('nm').style.borderColor = '#B91C1C'; return; }
+    const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Reserving…';
+    try {
+      const ids = items.map(g => g.id);
+      const r = await rpc('reserve', { p_gift_ids: ids, p_name: name, p_phone: phone, p_token: lsGet(tokenKey) });
+      if (!r.ok) {
+        await loadGifts();
+        const names = S.gifts.filter(g => (r.taken || []).includes(g.id)).map(g => esc(g.name));
+        (r.taken || []).forEach(id => S.sel.delete(id)); saveSel();
+        if (!S.sel.size) { alertList(names); return; }
+        viewReserve(`Someone just reserved: ${names.join(', ')}. It was removed from your list. Check the rest and reserve again.`);
+        return;
+      }
+      lsSet(tokenKey, r.token); lsSet('saud_bday_name', name); if (phone) lsSet('saud_bday_phone', phone);
+      sessionStorage.setItem('justReserved', JSON.stringify(ids));
+      S.sel.clear(); saveSel();
+      location.hash = '#/done';
+    } catch (err) {
+      go.disabled = false; go.textContent = `Reserve ${n} ${n === 1 ? 'gift' : 'gifts'}`;
+      viewReserve('Something went wrong. Check your connection and try again.');
+    }
+  };
+  scrollTo(0, 0);
+}
+function alertList(names) {
+  app.innerHTML = header(true) + `<div class="pad"><div class="err" role="alert">Someone just reserved ${names.join(', ')}. Please pick another gift.</div>
+    <a class="btn big mt8" href="#/" style="margin-top:16px">Back to the list</a></div>`;
+}
+
+// ---------- DONE ----------
+async function viewDone() {
+  const tok = lsGet(tokenKey);
+  if (!tok) { location.hash = '#/'; return; }
+  const just = JSON.parse(sessionStorage.getItem('justReserved') || '[]');
+  let mine = [];
+  try { mine = await rpc('my_gifts', { p_token: tok }); } catch (e) {}
+  const show = just.length ? mine.filter(g => just.includes(g.id)) : mine;
+  const link = myLink(tok);
+  const phone = (lsGet('saud_bday_phone') || '').replace(/[^\d]/g, '');
+  const msg = encodeURIComponent(`My gifts for Saud's birthday (28 Nov). Use this link to see them or undo: ${link}`);
+  const wa = phone ? `https://wa.me/${phone.length === 8 ? '965' + phone : phone}?text=${msg}` : `https://wa.me/?text=${msg}`;
+  app.innerHTML = `<div class="chk"></div>
+    <div style="background:var(--navy);color:#fff;padding:40px 24px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+      <div style="width:64px;height:64px;border-radius:32px;background:var(--yellow);display:flex;align-items:center;justify-content:center;color:var(--navy)">${ICON.check.replace(/16/g, '32')}</div>
+      <h1 class="disp" style="font-size:40px;line-height:1">${show.length === 1 ? "It's yours" : "They're yours"}</h1>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:#DCE3F2">${show.length === 1 ? 'This gift is reserved for you. Others will see it as taken.' : 'These gifts are reserved for you. Others will see them as taken.'}</p>
+    </div>
+    <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+      ${show.map(boughtRow).join('')}
+      <a class="btn ghost big" href="${wa}" target="_blank" rel="noopener">${ICON.share} Send my link to WhatsApp</a>
+      <button class="btn ghost big" id="ics">${ICON.cal} Add reminder · Sat 28 Nov</button>
+      <div class="note">This phone remembers your gifts. On another phone, use the link you send yourself to see them or undo.</div>
+      <a href="#/mine/${esc(tok)}" style="text-align:center;font-size:15px;font-weight:600;text-decoration:none;padding:8px 0">Changed your mind? Undo</a>
+      <a href="#/" style="text-align:center;font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;padding:4px 0 16px">Back to the list</a>
+    </div>`;
+  document.getElementById('ics').onclick = () => downloadIcs(show);
+  scrollTo(0, 0);
+}
+function boughtRow(g) {
+  const buy = g.url || g.url2;
+  return `<div class="card row" style="padding:10px">
+    <img class="thumb" src="${esc(g.img)}" alt="">
+    <div style="flex-grow:1;min-width:0"><div class="lbl">${esc(g.name)}</div><div class="small">${kwd(g.price)} · ${esc(g.store)}</div></div>
+    ${buy ? `<a class="btn" style="width:auto;padding:0 16px" href="${esc(buy)}" target="_blank" rel="noopener">Buy</a>` : '<span class="small" style="white-space:nowrap">In store</span>'}
+  </div>`;
+}
+function downloadIcs(items) {
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//saud-bday//EN', 'BEGIN:VEVENT',
+    'UID:saud-bday-' + Date.now() + '@gift-list', 'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+    'DTSTART;VALUE=DATE:' + PARTY.ics, 'DTEND;VALUE=DATE:20261129', "SUMMARY:Saud's birthday",
+    'DESCRIPTION:Your gifts: ' + items.map(g => g.name.replace(/[,;]/g, ' ')).join(' / '),
+    'BEGIN:VALARM', 'TRIGGER:-P2D', 'ACTION:DISPLAY', "DESCRIPTION:Buy Saud's gift", 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'];
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines.join('\r\n')], { type: 'text/calendar' }));
+  a.download = 'saud-birthday.ics'; document.body.appendChild(a); a.click(); a.remove();
+}
+
+// ---------- MINE ----------
+async function viewMine(tok) {
+  app.innerHTML = `<div class="loading">Loading…</div>`;
+  let mine = [];
+  try { mine = await rpc('my_gifts', { p_token: tok }); } catch (e) { app.innerHTML = header(true) + '<div class="pad"><div class="err">Could not load your gifts. Try again.</div></div>'; return; }
+  if (!lsGet(tokenKey)) lsSet(tokenKey, tok);
+  const name = mine[0] ? mine[0].guest_name.split(' ')[0] : '';
+  app.innerHTML = `<div class="chk"></div>
+    <div class="hero" style="padding:24px 20px;gap:6px;position:relative">
+      <div class="eyebrow">SAUD TURNS 6 · 28 NOV</div>
+      <h1 class="disp" style="font-size:36px">${name ? 'Your gifts, ' + esc(name) : 'Your gifts'}</h1>
+      <div style="font-size:14px;color:#DCE3F2">Only you can see this page.</div>
+    </div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:12px">
+      ${mine.length ? mine.map(g => `<article class="card" style="padding:12px;display:flex;flex-direction:column;gap:12px">
+        <div class="row"><img class="thumb" style="width:72px;height:72px" src="${esc(g.img)}" alt="">
+          <div><div class="lbl" style="font-size:15px">${esc(g.name)}</div><div class="small">${kwd(g.price)} · ${esc(g.store)}</div></div></div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+          ${(g.url || g.url2) ? `<a class="btn" href="${esc(g.url || g.url2)}" target="_blank" rel="noopener">Buy</a>` : '<div class="btn grey">In store</div>'}
+          <button class="btn ghost" data-undo="${g.id}" data-name="${esc(g.name)}">Undo</button>
+        </div></article>`).join('') : '<div class="note">You have no gifts reserved right now.</div>'}
+      <div class="hint" style="padding:4px 4px 0">Undo puts the gift back on the list for others.</div>
+      <a class="btn ghost big mt8" href="#/">See all gifts</a>
+    </div>`;
+  app.querySelectorAll('[data-undo]').forEach(b => b.onclick = async () => {
+    if (!confirm('Put "' + b.dataset.name + '" back on the list?')) return;
+    b.disabled = true; b.textContent = 'Undoing…';
+    try { await rpc('release_gift', { p_token: tok, p_gift_id: +b.dataset.undo }); await loadGifts(); viewMine(tok); }
+    catch (e) { b.disabled = false; b.textContent = 'Undo'; alert('Could not undo. Try again.'); }
+  });
+  scrollTo(0, 0);
+}
+
+// ---------- ADMIN ----------
+const adminKey = () => sessionStorage.getItem('adm') || lsGet('saud_bday_adm');
+async function viewAdmin() {
+  const key = adminKey();
+  if (!key) { app.innerHTML = header(true) + '<div class="pad"><div class="err">This page needs the parents\' link.</div></div>'; return; }
+  app.innerHTML = `<div class="loading">Loading…</div>`;
+  let rows;
+  try { rows = await rpc('admin_list', { p_secret: key }); }
+  catch (e) { lsSet('saud_bday_adm', null); sessionStorage.removeItem('adm'); app.innerHTML = header(true) + '<div class="pad"><div class="err">This parents\' link is not valid.</div></div>'; return; }
+  const taken = rows.filter(r => r.guest_name), open = rows.filter(r => !r.guest_name), bought = taken.filter(r => r.bought);
+  const days = Math.max(0, Math.ceil((new Date('2026-11-28T00:00:00+03:00') - new Date()) / 864e5));
+  const shareUrl = location.origin + location.pathname;
+  const shareMsg = encodeURIComponent(`Saud turns 6 on Saturday 28 November. Here is his gift list. Pick a gift and reserve it so no one buys the same thing: ${shareUrl}`);
+  app.innerHTML = `<div class="chk"></div>
+    <div class="hero" style="padding:22px 20px;gap:6px">
+      <div class="eyebrow">PARENTS ONLY</div>
+      <h1 class="disp" style="font-size:34px">Saud's gift list</h1>
+      <div style="font-size:14px;color:#DCE3F2">${days} days to go · Sat 28 Nov</div>
+    </div>
+    <div class="pad" style="display:flex;flex-direction:column;gap:14px">
+      <div class="stats"><div class="stat"><b>${taken.length}</b><span>Reserved</span></div><div class="stat"><b>${open.length}</b><span>Available</span></div><div class="stat"><b>${bought.length}</b><span>Bought</span></div></div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+        <a class="btn big" style="font-size:15px" href="https://wa.me/?text=${shareMsg}" target="_blank" rel="noopener">${ICON.share} Share on WhatsApp</a>
+        <button class="btn ghost big" style="font-size:15px" id="add">+ Add gift</button>
+      </div>
+      <form id="addf" class="card" style="padding:14px;display:none;flex-direction:column;gap:10px">
+        <label class="lbl" for="a1">Gift name</label><input class="inp" id="a1" required>
+        <label class="lbl" for="a2">Price (KWD, optional)</label><input class="inp" id="a2" inputmode="decimal">
+        <label class="lbl" for="a3">Group</label>
+        <select class="inp" id="a3"><option>Hot Wheels &amp; cars</option><option>PAW Patrol Dino</option><option>Sonic &amp; plush</option><option>Other</option></select>
+        <label class="lbl" for="a4">Store link (optional)</label><input class="inp" id="a4" type="url" placeholder="https://">
+        <label class="lbl" for="a5">Photo link (optional)</label><input class="inp" id="a5" type="url" placeholder="https://">
+        <button class="btn big" type="submit">Add to the list</button>
+      </form>
+      <h2 class="h3">WHO IS BRINGING WHAT</h2>
+      <div class="list">${taken.length ? taken.map(r => `<div class="li">
+          <img class="thumb" style="width:48px;height:48px;border-radius:8px" src="${esc(r.img || '')}" alt="">
+          <div style="flex-grow:1;min-width:0"><div class="lbl">${esc(r.name)}</div>
+            <div class="small">${esc(r.guest_name)}${r.guest_phone ? ' · <a href="https://wa.me/' + esc(r.guest_phone.replace(/[^\d]/g, '').replace(/^(\d{8})$/, '965$1')) + '" target="_blank" rel="noopener">' + esc(r.guest_phone) + '</a>' : ''} · ${new Date(r.reserved_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</div>
+            <div style="font-size:12px;font-weight:600;color:${r.bought ? '#15803D' : 'var(--orange)'}">${r.bought ? 'Bought' : 'Reserved, not bought yet'}</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <button class="minibtn" data-b="${r.id}" data-v="${!r.bought}">${r.bought ? 'Not bought' : 'Mark bought'}</button>
+            <button class="minibtn" data-rel="${r.id}" data-name="${esc(r.name)}">Release</button></div>
+        </div>`).join('') : '<div class="li small">No gifts reserved yet.</div>'}</div>
+      <div class="hint">Only you and Anfal can open this page. Keep the link private.</div>
+      <h2 class="h3">STILL AVAILABLE · ${open.length}</h2>
+      <div class="list">${open.map(r => `<div class="li" style="font-size:14px">
+          <span style="flex-grow:1;font-weight:500">${esc(r.name)}</span><span class="small" style="white-space:nowrap">${kwd(r.price).replace('Price in store', 'In store')}</span>
+          <button class="minibtn" data-del="${r.id}" data-name="${esc(r.name)}" aria-label="Remove ${esc(r.name)}">Remove</button></div>`).join('')}</div>
+    </div><div class="chk" style="margin-top:24px"></div>`;
+  const reload = () => viewAdmin();
+  document.getElementById('add').onclick = () => { const f = document.getElementById('addf'); f.style.display = f.style.display === 'flex' ? 'none' : 'flex'; };
+  document.getElementById('addf').onsubmit = async e => {
+    e.preventDefault(); const v = id => document.getElementById(id).value.trim();
+    if (!v('a1')) return;
+    try { await rpc('admin_add_gift', { p_secret: key, p_name: v('a1'), p_grp: v('a3'), p_price: v('a2') ? Number(v('a2')) : null, p_store: 'Fantasy World', p_url: v('a4'), p_img: v('a5') }); reload(); }
+    catch (err) { alert('Could not add the gift.'); }
+  };
+  app.querySelectorAll('[data-b]').forEach(b => b.onclick = async () => { b.disabled = true; await rpc('admin_set_bought', { p_secret: key, p_gift_id: +b.dataset.b, p_bought: b.dataset.v === 'true' }).catch(() => alert('Failed')); reload(); });
+  app.querySelectorAll('[data-rel]').forEach(b => b.onclick = async () => { if (!confirm('Release "' + b.dataset.name + '"? It goes back on the list.')) return; await rpc('admin_release', { p_secret: key, p_gift_id: +b.dataset.rel }).catch(() => alert('Failed')); reload(); });
+  app.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => { if (!confirm('Remove "' + b.dataset.name + '" from the list?')) return; await rpc('admin_remove_gift', { p_secret: key, p_gift_id: +b.dataset.del }).catch(() => alert('Failed')); reload(); });
+  scrollTo(0, 0);
+}
+
+// ---------- ROUTER ----------
+async function render() {
+  const h = location.hash.replace(/^#\/?/, '');
+  const [p, a] = h.split('/');
+  if (p === 'admin') return viewAdmin();
+  if (p === 'mine' && a) return viewMine(a);
+  if (p === 'done') return viewDone();
+  if (!S.loaded) {
+    try { await loadGifts(); } catch (e) { app.innerHTML = header(true) + '<div class="pad"><div class="err">Could not load the list. Check your connection and refresh.</div></div>'; return; }
+  }
+  if (p === 'gift' && a) return viewGift(a);
+  if (p === 'reserve') return viewReserve();
+  viewList();
+}
+(function init() {
+  const q = new URLSearchParams(location.search);
+  if (q.get('admin')) {
+    sessionStorage.setItem('adm', q.get('admin')); lsSet('saud_bday_adm', q.get('admin'));
+    history.replaceState(null, '', location.pathname + '#/admin');
+  }
+  addEventListener('hashchange', () => { const ph = location.hash; if (ph === '' || ph === '#/' ) { loadGifts().then(render).catch(render); } else render(); });
+  render();
+})();
+</script>
+</body>
+</html>
